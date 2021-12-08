@@ -14,13 +14,13 @@ def parse_product_links(url):
     # }
     # resp = requests.get(URL, headers=headers)
     # src = resp.text
-
+    #
     # # Uncomment with the above to write page once
-    # with open("index.html", "w", encoding="utf-8") as file:
+    # with open("../page.html", "w", encoding="utf-8") as file:
     #     file.write(src)
 
     # Uncomment with the below to work with file and not URL (not to get bot-banned)
-    with open("index.html", encoding="utf-8") as file:
+    with open("../page.html", encoding="utf-8") as file:
         src = file.read()
 
     soup = BeautifulSoup(src, "lxml")
