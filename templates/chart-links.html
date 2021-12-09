@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="card bg-dark border-light text-light text-center">
+    <div class="card-body">
+        <form>
+            <div class="form-group row">
+                <label for="urlInput" class="col-3 col-form-label">Enter a top10 chart URL:</label>
+                <div class="col">
+                    <input type="url" class="form-control" id="urlInput" aria-describedby="urlHelp">
+                </div>
+                <div class="col-1">
+                    <button type="submit" class="btn btn-light">Enter</button>
+                </div>
+            </div>
+        </form>
+        <small id="urlHelp" class="text-left font-weight-light">Make sure it contains "https://". Querystring parameters are acceptable</small>
+    </div>
+</div>
+{% endblock content %}
