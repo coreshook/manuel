@@ -16,10 +16,19 @@
         <small id="urlHelp" class="text-left font-weight-light">Make sure it contains "https://". Querystring parameters are acceptable</small>
     </div>
 </div>
-{% if url_items %}
+{% if is_post and cnt == 0 %}
 <div class="card bg-dark border-light text-light text-center">
     <div class="card-body">
-        <table>
+        <h3>No product links found, please check your URL:</h3>
+        <h4>{{ url }}</h4>
+    </div>
+</div>
+{% elif is_post and cnt > 0 %}
+<div class="card bg-dark border-light text-light text-center">
+    <div class="card-body">
+        <h4>Product links found for <b>{{ url }}</b></h4>
+        <br>
+        <table class="table table-dark">
             <tr>
                 <th>
                     Product name
@@ -28,7 +37,7 @@
                     Product link
                 </th>
             </tr>
-        {% for name, link in url_items %}
+        {% for name, link in names_links %}
         <tr>
             <td>
                 {{ name }}
@@ -38,6 +47,7 @@
             </td>
         </tr>
         {% endfor %}
+        </table>
     </div>
 </div>
 {% endif %}

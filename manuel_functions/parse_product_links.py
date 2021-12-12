@@ -2,26 +2,24 @@ from urllib.parse import parse_qs
 from bs4 import BeautifulSoup
 import requests
 
-URL = "https://www.top10.com/fitness-machines/comparison?monitoring=1"
-
 
 def parse_product_links(url):
-    # headers = {
-    #     "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,\
-    #     application/signed-exchange;v=b3;q=0.9",
-    #     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) \
-    #     Chrome/96.0.4664.93 Safari/537.36"
-    # }
-    # resp = requests.get(URL, headers=headers)
-    # src = resp.text
-    #
+    headers = {
+        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,\
+        application/signed-exchange;v=b3;q=0.9",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) \
+        Chrome/96.0.4664.93 Safari/537.36"
+    }
+    resp = requests.get(url, headers=headers)
+    src = resp.text
+
     # # Uncomment with the above to write page once
     # with open("../page.html", "w", encoding="utf-8") as file:
     #     file.write(src)
 
-    # Uncomment with the below to work with file and not URL (not to get bot-banned)
-    with open("../page.html", encoding="utf-8") as file:
-        src = file.read()
+    # # Uncomment with the below to work with file and not URL (not to get bot-banned)
+    # with open("page.html", encoding="utf-8") as file:
+    #     src = file.read()
 
     soup = BeautifulSoup(src, "lxml")
 
@@ -42,4 +40,6 @@ def parse_product_links(url):
 
 
 if __name__ == "__main__":
-    parse_product_links(URL)
+    bad_URL = "https://www.top10.com/"
+    good_URL = "https://www.top10.com/fitness-machines/comparison?monitoring=1"
+    print(parse_product_links(good_URL))
