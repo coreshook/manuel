@@ -85,8 +85,8 @@ def add_csv_line():
 @app.route("/download-csv", methods=["POST"])
 def download_csv_file():
     global file_content, csv_headers
-    current_time = datetime.now().strftime("%d-%m-%Y_--_%H-%M-%S")
-    current_filename = secure_filename("Manuel-Bulk_--_" + "_--_" + current_time + ".csv")
+    current_date = datetime.now().strftime("%d-%m-%Y")
+    current_filename = secure_filename("Manuel-Bulk_--_" + "_--_" + current_date + ".csv")
     with open(current_filename, "w") as file:
         write = writer(file)
         write.writerow(csv_headers)
