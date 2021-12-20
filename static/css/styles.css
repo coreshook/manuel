@@ -2,7 +2,7 @@
     width: 18%;
 }
 
-.card {
+.card, #formFile {
     margin: 10px;
     width: 75%;
     margin-left: auto;
@@ -12,4 +12,10 @@
 .row {
   display: flex;
   align-items: center;
+}
+
+#fileSubmit {
+    width: 15%;
+    margin-left: auto;
+    margin-right: auto;
 }
