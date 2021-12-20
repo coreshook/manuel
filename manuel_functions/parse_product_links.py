@@ -23,7 +23,7 @@ def parse_product_links(url):
 
     soup = BeautifulSoup(src, "lxml")
 
-    all_ctas = soup.select(".chart__body:not([data-cross-chart='true']) .right__CTA-container .cta-button")
+    all_ctas = soup.select(".chart__body:not([data-cross-chart='true']) .right .cta-button")
     raw_product_links = [item.get("href") for item in all_ctas]
     product_links = []
     for link in raw_product_links:
