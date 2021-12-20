@@ -5,6 +5,7 @@ def listify_csv(filename: str) -> list:
     with open(filename, newline="") as file:
         reader = csv.reader(file)
         data = list(reader)
+        file.close()
 
     return [data[0], data[1:]]
 
