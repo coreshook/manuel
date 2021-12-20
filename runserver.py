@@ -1,15 +1,11 @@
-import random
 from datetime import datetime
-from time import sleep
-
-from flask import Flask, render_template, url_for, request, send_from_directory, flash, after_this_request
+from flask import Flask, render_template, url_for, request, flash
 from werkzeug.utils import secure_filename, redirect
 import os
 from csv import writer
 
 from manuel_functions.listify_csv import listify_csv
 from manuel_functions.parse_product_links import parse_product_links
-from manuel_functions.remove_csv import remove_csv
 
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = "./"
