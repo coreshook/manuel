@@ -1,5 +1,6 @@
 import re
 
+
 # this is stolen from Django Core docs
 def validate_url(url):
     regex = re.compile(

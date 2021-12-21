@@ -1,5 +1,4 @@
 import os
-from _socket import gethostname, gethostbyname
 from datetime import datetime
 
 

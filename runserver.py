@@ -75,7 +75,7 @@ def delete_csv_line():
 def add_csv_line():
     first_value = request.form["addLine0"]
     second_value = request.form["addLine1"]
-    values_to_add = [first_value, second_value]
+    values_to_add = [first_value.strip(), second_value.strip()]
 
     global file_content, csv_headers
     file_content.append(values_to_add)
