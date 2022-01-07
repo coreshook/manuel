@@ -31,7 +31,8 @@ def chart_links_get():
 def chart_links_post():
     is_post = True
     url = request.form["urlInput"]
-    names_links = parse_product_links(url).items()
+    device = request.form["device"]
+    names_links = parse_product_links(url, device).items()
     cnt = len(names_links)
     return render_template("chart-links.html", url=url, is_post=is_post, names_links=names_links, cnt=cnt)
 
