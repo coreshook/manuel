@@ -91,10 +91,14 @@ def download_csv_file():
     current_date = datetime.now().strftime("%d-%m-%Y")
     current_filename = secure_filename("Manuel-Bulk_--_" + current_date + ".csv")
     with open(current_filename, "w") as file:
-        write = writer(file)
-        write.writerow(csv_headers)
-        write.writerows(file_content)
-        file.close()
+        try:
+            write = writer(file)
+            write.writerow(csv_headers)
+            write.writerows(file_content)
+            file.close()
+        except OSError:
+            flash("An error occurred while trying to write file. Sorry, please try again")
+            return redirect(url_for("bulk_redirect_editor_get"))
 
     def generate():
         with open(current_filename) as file_to_download:
