@@ -50,9 +50,11 @@ def bulk_upload():
         raw_file = request.files["file"]
         raw_file.save(secure_filename(raw_file.filename))
 
-        global file_content, csv_headers
-        csv_headers, file_content = listify_csv(secure_filename(raw_file.filename))
-        os.unlink(secure_filename(raw_file.filename))
+        try:
+            global file_content, csv_headers
+            csv_headers, file_content = listify_csv(secure_filename(raw_file.filename))
+        finally:
+            os.unlink(secure_filename(raw_file.filename))
         return render_template("bulk-redirect-editor.html", headers=csv_headers, file=file_content)
 
 
