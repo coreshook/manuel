@@ -14,7 +14,8 @@
         {% endwith %}
         <form action="/bulk-upload" method="POST" enctype="multipart/form-data">
             <div class="form-group row">
-                <label for="formFile" class="form-label"><b>Only use this if you're out of options.</b>
+                <label for="formFile" class="form-label"><b>Only use this if you're out of options.
+                The editor may eventually save file with blank lines, and I haven't found why yet.</b>
                     Please upload your CSV</label>
                 <input class="form-control" required type="file" name="file" id="formFile"/>
                 <input type="submit" class="btn btn-light mt-2 mb-2" id="fileSubmit" value="Upload"/>
