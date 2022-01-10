@@ -1,0 +1,68 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="card bg-dark border-light text-light text-center">
+    <div class="card-body">
+        <h4>The field understands Google Sheet copypaste from a single column. Please stick to that</h4>
+        <h5>The links should be separated by newlines only, no commas or other separators</h5>
+        <br>
+        <form action="/listed-chart-links" method="POST">
+            <div class="form-group row">
+                <div class="col">
+                    <textarea class="form-control" id="urlInput" name="urlInput" aria-describedby="urlHelp" cols="40" rows="5"></textarea>
+                    <small id="urlHelp" class="text-left font-weight-light">Make sure links contain "https://". Querystring parameters are acceptable</small>
+                </div>
+                <div class="col-2">
+                    <label for="device">Device:&nbsp;</label>
+                    <select class="dropdown mt-2" id="device" name="device">
+                        <option class="dropdown-item" value="desktop">Desktop</option>
+                        <option class="dropdown-item" value="mobile">Mobile</option>
+                    </select>
+                </div>
+                <div class="col-1">
+                    <button type="submit" class="btn btn-light">Enter</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% if is_post and cnt == 0 %}
+<div class="card bg-dark border-light text-light text-center">
+    <div class="card-body">
+        <h3>No product links found, please check your URLs:</h3>
+        <h4>{{ url }}</h4>
+    </div>
+</div>
+{% elif is_post and cnt > 0 %}
+<div class="card bg-dark border-light text-light text-center">
+    <div class="card-body">
+        <table class="table table-dark">
+            <tr>
+                <th>
+                    Product name
+                </th>
+                <th>
+                    Product link
+                </th>
+            </tr>
+        {% for url, items in names_links %}
+        <tr>
+            <td style="text-align:left; color:#CDFFCC" colspan="2">
+                <b>{{ url }}</b>
+            </td>
+        </tr>
+        {% for i in range(items[0]|length) %}
+        <tr>
+            <td>
+                {{ items[0][i] }}
+            </td>
+            <td>
+                {{ items[1][i] }}
+            </td>
+        </tr>
+        {% endfor %}
+        {% endfor %}
+        </table>
+    </div>
+</div>
+{% endif %}
+{% endblock content %}
