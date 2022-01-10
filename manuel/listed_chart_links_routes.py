@@ -17,10 +17,8 @@ def listed_chart_links_post():
     device = request.form["device"]
     if "\r\n" in urls:
         urls = urls.split("\r\n")
-        print(urls)
     else:
         urls = urls.split("\n")
-        print(urls)
 
     names_links = parse_listed_product_links(urls, device).items()
     cnt = len(names_links)
