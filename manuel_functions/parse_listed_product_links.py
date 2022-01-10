@@ -23,6 +23,9 @@ def parse_listed_product_links(urls: list, device: str) -> dict:
 
     for url in urls:
         resp = requests.get(url, headers=headers)
+        if str(resp.status_code).startswith("4") or str(resp.status_code).startswith("5"):
+            result.update({url: [["Error"], [str(resp.status_code)]]})
+            continue
         src = resp.text
 
         # # Uncomment with the above to write page once
