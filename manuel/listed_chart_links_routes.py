@@ -15,7 +15,13 @@ def listed_chart_links_post():
     is_post = True
     urls = request.form["urlInput"]
     device = request.form["device"]
-    urls = urls.split("\n")
+    if "\r\n" in urls:
+        urls = urls.split("\r\n")
+        print(urls)
+    else:
+        urls = urls.split("\n")
+        print(urls)
+
     names_links = parse_listed_product_links(urls, device).items()
     cnt = len(names_links)
     return render_template("listed-chart-links.html", url=urls, is_post=is_post, names_links=names_links, cnt=cnt)
