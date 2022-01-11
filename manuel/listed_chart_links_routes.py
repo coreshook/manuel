@@ -6,13 +6,12 @@ from manuel_functions.parse_listed_product_links import parse_listed_product_lin
 
 @app.route("/listed-chart-links", methods=["GET"])
 def listed_chart_links_get():
-    is_post = False
-    return render_template("listed-chart-links-get.html", is_post=is_post)
+    return render_template("listed-chart-links-get.html")
 
 
 @app.route("/listed-chart-links", methods=["POST"])
 def listed_chart_links_post():
-    urls = request.form["urlInput"]
+    urls = request.form["urlsInput"]
     device = request.form["device"]
 
     urls.replace(",", "")

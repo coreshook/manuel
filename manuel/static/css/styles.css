@@ -33,6 +33,24 @@ input[readonly] {
     word-wrap: break-word;
 }
 
-textarea {
+.urlsInput {
     margin-left: 15px !important;
+}
+
+#text1Example {
+    background-color: darkblue;
+    width: max-content;
+}
+
+#text2Example {
+    background-color: darkgreen;
+    width: max-content;
+}
+
+#textComparison {
+    font-size:0;
+}
+
+span {
+    font-size:1rem !important;
 }

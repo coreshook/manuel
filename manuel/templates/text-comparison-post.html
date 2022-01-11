@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="card bg-dark border-light text-light text-center">
+    <div class="row card-body">
+        <h4>Feature runs in test mode</h4>
+        <div class="col" id="text1Example">
+            This is how mismatching values from Text1 look like
+        </div>
+        <div class="col" id="text2Example">
+            This is how mismatching values from Text2 look like
+        </div>
+    </div>
+</div>
+<div class="card bg-dark border-light text-light text-center">
+    <div class="card-body" id="textComparison">
+        <h5>The result:</h5>
+        {% for flag, text in diff %}
+        {% if flag == -1 %}
+        <span style="background-color: darkblue">{{ text }}</span>
+        {% elif flag == 0 %}
+        <span>{{ text }}</span>
+        {% elif flag == 1 %}
+        <span style="background-color: darkgreen">{{ text }}</span>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

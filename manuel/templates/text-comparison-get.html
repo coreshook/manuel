@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="card bg-dark border-light text-light text-center">
+    <div class="card-body">
+        <h4>Text Comparison</h4>
+        <p class="justify-content-center">Highlights the differences between the two given pieces of text</p>
+        <br>
+        <form action="/text-comparison" method="POST">
+            <div class="form-group row">
+                <div class="col">
+                    <label class="mb-1"><b>Text 1</b></label>
+                    <textarea required class="form-control" id="textOneInput" name="textOneInput" cols="20" rows="10"></textarea>
+                </div>
+                <div class="col">
+                    <label class="mb-1"><b>Text 2</b></label>
+                    <textarea required class="form-control" id="textTwoInput" name="textTwoInput" cols="20" rows="10"></textarea>
+                </div>
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-light">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}
