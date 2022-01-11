@@ -12,5 +12,8 @@ def link_prettifier_get():
 @app.route("/link-prettifier", methods=["POST"])
 def link_prettifier_post():
     url = request.form["urlInput"]
-    link = prettify_link(url)
+    try:
+        link = prettify_link(url)
+    except KeyError:
+        link = "is not a Top10 partner's link, so I failed to prettify it"
     return render_template("link-prettifier-post.html", link=link)
