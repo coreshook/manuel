@@ -4,7 +4,7 @@
 
 .card, #formFile {
     margin: 10px;
-    width: 75%;
+    width: 85%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -20,7 +20,19 @@
     margin-right: auto;
 }
 
+#formFile {
+    width: 75%;
+}
+
 input[readonly] {
     width: 100%;
     overflow: scroll;
+}
+
+.table {
+    word-wrap: break-word;
+}
+
+textarea {
+    margin-left: 15px !important;
 }

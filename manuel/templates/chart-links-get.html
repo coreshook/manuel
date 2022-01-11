@@ -1,4 +1,5 @@
 {% extends 'base.html'%}
+
 {% block content %}
 <div class="card bg-dark border-light text-light text-center">
     <div class="card-body">
@@ -7,7 +8,8 @@
                 <label for="urlInput" class="col-2 col-form-label">Enter a top10 chart URL:</label>
                 <div class="col">
                     <input type="url" class="form-control" id="urlInput" name="urlInput" aria-describedby="urlHelp">
-                    <small id="urlHelp" class="text-left font-weight-light">Make sure it contains "https://". Querystring parameters are acceptable</small>
+                    <small id="urlHelp" class="text-left font-weight-light">Make sure it contains "https://".
+                        Querystring parameters are acceptable</small>
                 </div>
                 <div class="col-2">
                     <label for="device">Device:&nbsp;</label>
@@ -23,39 +25,4 @@
         </form>
     </div>
 </div>
-{% if is_post and cnt == 0 %}
-<div class="card bg-dark border-light text-light text-center">
-    <div class="card-body">
-        <h3>No product links found, please check your URL:</h3>
-        <h4>{{ url }}</h4>
-    </div>
-</div>
-{% elif is_post and cnt > 0 %}
-<div class="card bg-dark border-light text-light text-center">
-    <div class="card-body">
-        <h4>Product links found for <b>{{ url }}</b></h4>
-        <br>
-        <table class="table table-dark">
-            <tr>
-                <th>
-                    Product name
-                </th>
-                <th>
-                    Product link
-                </th>
-            </tr>
-        {% for name, link in names_links %}
-        <tr>
-            <td>
-                {{ name }}
-            </td>
-            <td>
-                {{ link }}
-            </td>
-        </tr>
-        {% endfor %}
-        </table>
-    </div>
-</div>
-{% endif %}
 {% endblock content %}

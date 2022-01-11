@@ -14,13 +14,13 @@ csv_headers = []
 
 @app.route("/bulk-redirect-editor", methods=["GET"])
 def bulk_redirect_editor_get():
-    return render_template("bulk-redirect-editor.html")
+    return render_template("bulk-redirect-editor-get.html")
 
 
 @app.route("/bulk-upload", methods=["POST"])
 def bulk_upload():
     if not request.files["file"].filename.endswith(".csv"):
-        return render_template("bulk-redirect-editor.html", not_CSV=True)
+        return render_template("bulk-redirect-editor-get.html", not_CSV=True)
     else:
         raw_file = request.files["file"]
         raw_file.save(secure_filename(raw_file.filename))
@@ -30,7 +30,7 @@ def bulk_upload():
             csv_headers, file_content = listify_csv(secure_filename(raw_file.filename))
         finally:
             unlink(secure_filename(raw_file.filename))
-        return render_template("bulk-redirect-editor.html", headers=csv_headers, file=file_content)
+        return render_template("bulk-redirect-editor-post.html", headers=csv_headers, file=file_content)
 
 
 @app.route("/delete-csv-line", methods=["POST"])
@@ -45,7 +45,7 @@ def delete_csv_line():
     except ValueError:
         flash("Error: You've attempted to delete an already deleted value. Please re-upload the file and start over")
         return redirect(url_for("bulk_redirect_editor_get"))
-    return render_template("bulk-redirect-editor.html", headers=csv_headers, file=file_content)
+    return render_template("bulk-redirect-editor-post.html", headers=csv_headers, file=file_content)
 
 
 @app.route("/add-csv-line", methods=["POST"])
@@ -56,7 +56,7 @@ def add_csv_line():
 
     global file_content, csv_headers
     file_content.append(values_to_add)
-    return render_template("bulk-redirect-editor.html", headers=csv_headers, file=file_content)
+    return render_template("bulk-redirect-editor-post.html", headers=csv_headers, file=file_content)
 
 
 @app.route("/download-csv", methods=["POST"])
