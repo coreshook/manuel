@@ -3,6 +3,15 @@
 {% block content %}
 <div class="card bg-dark border-light text-light text-center">
     <div class="card-body">
+        <h4>Chart Product Links extractor</h4>
+        <p>This service provides a sorted table with all of the <b>chart</b> product links with their respective
+        product names. It works with a <b>single</b> page.
+        You can select the preferred device in the dropdown (Desktop or Mobile).
+        If no chart links were found - an Error message will appear.</p>
+    </div>
+</div>
+<div class="card bg-dark border-light text-light text-center">
+    <div class="card-body">
         <form action="/chart-links" method="POST">
             <div class="form-group row">
                 <label for="urlInput" class="col-2 col-form-label">Enter a top10 chart URL:</label>

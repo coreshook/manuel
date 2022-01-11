@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="card bg-dark border-light text-light text-center">
+    <div class="card-body row">
+        <div class="col-3 mt-1">
+            Your link was broomed to:
+        </div>
+        <div class="col mt-1">
+            {{ link }}
+        </div>
+        <div class="col-1">
+            <a class="btn btn-light" href="/link-prettifier" role="button">Go back</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -19,6 +19,7 @@
 
 
             {% for data_string in file %}
+            {% if data_string[1] %}
             <tr>
                 <form method="POST" action="/delete-csv-line">
                 {% for i in range(data_string|length) %}
@@ -31,6 +32,7 @@
                     </td>
                 </form>
             </tr>
+            {% endif %}
             {% endfor %}
 
             <tr>
@@ -47,7 +49,9 @@
                 </form>
             </tr>
         </table>
-        <input type="submit" class="btn btn-light" value="Save & Download">
+        <form method="POST" action="/download-csv">
+            <input type="submit" class="btn btn-light" value="Save & Download">
+        </form>
     </div>
 </div>
 {% endif %}

@@ -54,3 +54,8 @@ input[readonly] {
 span {
     font-size:1rem !important;
 }
+
+#updatesTable {
+    width: 95%;
+    margin: auto;
+}

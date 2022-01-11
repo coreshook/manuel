@@ -3,9 +3,15 @@
 {% block content %}
 <div class="card bg-dark border-light text-light text-center">
     <div class="card-body">
-        <h4>Text Comparison</h4>
-        <p class="justify-content-center">Highlights the differences between the two given pieces of text</p>
-        <br>
+        <h4>Text Comparison tool</h4>
+        <p>
+            This service evaluates the difference between the two given pieces of text. It returns a Result text,
+            which has mismatches from Text1 highlighted in blue, and mismatches from Text2 highlighted in green.
+        </p>
+    </div>
+</div>
+<div class="card bg-dark border-light text-light text-center">
+    <div class="card-body">
         <form action="/text-comparison" method="POST">
             <div class="form-group row">
                 <div class="col">
