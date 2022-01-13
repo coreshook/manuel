@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="card bg-dark border-light text-light text-center">
+    <div class="card-body">
+        <h4>IP Sheet</h4>
+        <p>A list of IP addresses of specific countries to help emulate the address for checking convenience.
+        Click a button to copy its value.</p>
+        <h5>Nothing will be shown on success, errors will be alerted, if any. Link formation examples:</h5>
+        <h5> https://www.thetop10bestantivirus.com/<ins>?ip=3.7.91.44</ins></h5>
+        <h5>https://www.thetop10bestantivirus.com/?ts=rotw<ins>&ip=3.7.91.44</ins></h5>
+    </div>
+</div>
+<div class="card bg-dark border-light text-light text-center">
+    <div class="card-body">
+        <table class="table table-dark align-middle" id="ipTable">
+            <tr class="row justify-content-center text-center">
+                <th class="col-4">
+                    Country/Region
+                </th>
+                <th class="col-4">
+                    IP Addresses
+                </th>
+            </tr>
+            {% for country, ip in ip_items %}
+            <tr class="row justify-content-center">
+                <td class="col-4  text-center">
+                    {{ country }}
+                </td>
+                <td class="col-4">
+                    <button class="btn btn-light" onclick="copyToClip('ip{{country}}1')" id="ip{{country}}1">
+                        {{ ip }}
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}
