@@ -42,7 +42,7 @@
         function copyToClip(id) {
             var copyText = document.getElementById(id);
             try {
-                navigator.clipboard.writeText(copyText.textContent);
+                navigator.clipboard.writeText(copyText.textContent.trim());
             } catch(e) {
                 alert(e);
             }
